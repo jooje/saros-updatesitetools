@@ -1,6 +1,14 @@
 #! /usr/bin/python
 
-"""helper script to add entries to Eclipse PDE style site.xml files"""
+"""helper script for the Saros project to add entries to Eclipse PDE style
+site.xml files. Takes path to site.xml file and path to a directory containing
+the feature and plugin files and adds corresponding entries to the site.xml file
+if not already present.
+
+Returns 2 if the entry was already present, 1 on all errors and 0 otherwise
+
+2010 Florian Thiel <florian.thiel@fu-berlin.de> for the Saros project
+"""
 
 import os, sys, re
 import xml.etree.ElementTree as ET
@@ -14,9 +22,6 @@ urlpostfix = "?use_mirror=dfn"
 packagename = "de.fu_berlin.inf.dpp"
 featureid = packagename+".feature"
 pathbase = "plugins/"
-
-featurefile = "de.fu_berlin.inf.dpp.feature_9.10.2.r1804.jar"
-pluginfile = "de.fu_berlin.inf.dpp_9.10.2.r1803.jar"
 
 featureversion_re = re.compile(featureid + "_(.*)\.jar")
 pluginversion_re = re.compile(packagename + "_(.*)\.jar")
@@ -50,12 +55,12 @@ if __name__ == '__main__':
             featurefile = f
             featureversion = mf.group(1)
             print "found feature file " + featurefile +\
-                  "version " + featureversion
+                  " version " + featureversion
         if mp:
             pluginfile = f
             pluginversion = mp.group(1)
             print "found plugin file " + pluginfile +\
-                  "version " + pluginversion
+                  " version " + pluginversion
     
     if (featureversion == None):
         print "Could not determine version of feature, exiting"
@@ -74,6 +79,7 @@ if __name__ == '__main__':
         if(f.attrib.get("version") == featureversion):
             found = True
             print "feature version " + featureversion + " already exists"
+            exit(2)
 
     # if feature is missing, we don't check archive entries!
     if not found:
