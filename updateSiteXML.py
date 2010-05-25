@@ -92,4 +92,4 @@ if __name__ == '__main__':
         # add archive element
         ET.SubElement(root,"archive", path=pathbase + pluginfile,
                       url=urlbase+pluginfile+urlpostfix)
-        tree.write(inputfilename)
+        tree.write(inputfilename+outputpostfix)
