@@ -1,8 +1,13 @@
 #! /bin/sh
 
+# VERSION FOR UPDATING STABLE RELEASES!
 # Update script that copies plugin and feature files for Saros to sourceforge
 # and automagically updates the required site.xml files for Eclipse in the
 # process
+#
+# NOTE: This is the version to to stable releases! Apart from some paths
+# being different, the major difference is that running the script when
+# there's no new version results in an error!
 #
 # 2010 Florian Thiel <florian.thiel@fu-berlin.de> for the Saros project
 
@@ -11,13 +16,13 @@
 set -e
 
 BASEDIR="/home/build"
-JARS_DIR="/var/lib/hudson/jobs/SarosTrunk/workspace/Saros/build/uninstrumented"
-LOCAL_TEMP_DIR="$BASEDIR/buildtemp"
+JARS_DIR="/var/lib/hudson/jobs/SarosStable/workspace/Saros/build/uninstrumented"
+LOCAL_TEMP_DIR="$BASEDIR/buildtempStable"
 SF_USER="florianthiel" 
 SF_KEY_FILE="$BASEDIR/UpdateSiteTools/saros-build-flo"
 SF_FRS_TARGET_DIR="${SF_USER},dpp@frs.sourceforge.net:/home/frs/project/d/dp/dpp/saros"
 SF_UPDATE_SITE_TARGET_DIR="${SF_USER},dpp@web.sourceforge.net:/home/groups/d/dp/dpp/htdocs"
-SF_UPDATE_SITE_DIR_NAME="update-devel"
+SF_UPDATE_SITE_DIR_NAME="update-stable"
 
 ### Functions ###
 cleanup ()
@@ -66,7 +71,7 @@ if [ $UPDATE_SITE_RETURN -eq 1 ]; then
 elif [ $UPDATE_SITE_RETURN -eq 2 ]; then
     echo "site.xml is up to date, no need for updating files. Exiting!"
     cleanup
-    exit 0
+    exit 1
 fi
 
 set +e
