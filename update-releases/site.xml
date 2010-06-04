@@ -1,0 +1,5 @@
+<site>
+   <description url="http://dpp.sf.net/update-devel">
+      Site to install the Saros Feature for Distributed Pair Programming (Release versions)
+   </description>
+<feature id="de.fu_berlin.inf.dpp.feature" url="http://downloads.sourceforge.net/dpp/de.fu_berlin.inf.dpp.feature_10.4.30.DEVEL.jar?use_mirror=dfn" version="10.4.30.DEVEL"><category name="DPP" /></feature><archive path="plugins/de.fu_berlin.inf.dpp_10.4.30.DEVEL.jar" url="http://downloads.sourceforge.net/dpp/de.fu_berlin.inf.dpp_10.4.30.DEVEL.jar?use_mirror=dfn" /><feature id="de.fu_berlin.inf.dpp.feature" url="http://downloads.sourceforge.net/dpp/de.fu_berlin.inf.dpp.feature_10.6.25.DEVEL.jar?use_mirror=dfn" version="10.6.25.DEVEL"><category name="DPP" /></feature><archive path="plugins/de.fu_berlin.inf.dpp_10.6.25.DEVEL.jar" url="http://downloads.sourceforge.net/dpp/de.fu_berlin.inf.dpp_10.6.25.DEVEL.jar?use_mirror=dfn" /></site>

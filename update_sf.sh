@@ -16,13 +16,13 @@
 set -e
 
 BASEDIR="/home/build"
-JARS_DIR="/var/lib/hudson/jobs/SarosStable/workspace/Saros/build/uninstrumented"
+JARS_DIR="/var/lib/hudson/jobs/BuildSarosRelease/workspace/Saros/build/uninstrumented"
 LOCAL_TEMP_DIR="$BASEDIR/buildtempStable"
 SF_USER="florianthiel" 
 SF_KEY_FILE="$BASEDIR/UpdateSiteTools/saros-build-flo"
 SF_FRS_TARGET_DIR="${SF_USER},dpp@frs.sourceforge.net:/home/frs/project/d/dp/dpp/saros"
 SF_UPDATE_SITE_TARGET_DIR="${SF_USER},dpp@web.sourceforge.net:/home/groups/d/dp/dpp/htdocs"
-SF_UPDATE_SITE_DIR_NAME="update-stable"
+SF_UPDATE_SITE_DIR_NAME="update-releases"
 
 ### Functions ###
 cleanup ()
